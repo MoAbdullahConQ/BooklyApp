@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
           CustomAppBar(),
           FeaturedBooksListView(),
           SizedBox(height: 50),
-          Text('Best Seller', style: Styles.titleMedium),
+          Text('Best Seller', style: Styles.textStyle18),
           BestSellerListViewItem()
         ],
       ),
@@ -43,7 +43,7 @@ class BestSellerListViewItem extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .25,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Color(0xffFEBDA6),
+                color: const Color(0xffFEBDA6),
                 image: const DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(AssetsData.testImage),
@@ -51,6 +51,7 @@ class BestSellerListViewItem extends StatelessWidget {
               ),
             ),
           ),
+         
         ],
       ),
     );
