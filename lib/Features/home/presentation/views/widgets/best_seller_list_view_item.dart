@@ -23,8 +23,8 @@ class BestSellerListViewItem extends StatelessWidget {
             AspectRatio(
               aspectRatio: 2.5 / 4,
               child: Container(
-                width: 50,
-                height: MediaQuery.of(context).size.height * .25,
+                // width: 50,
+                // height: MediaQuery.of(context).size.height * .25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   color: const Color(0xffFEBDA6),
@@ -41,11 +41,11 @@ class BestSellerListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * .5,
+                    width: MediaQuery.of(context).size.width / 2,
                     child: Text(
                       'Harry Potter and the Goblet Fire',
-                      style:
-                          Styles.textStyle20.copyWith(fontFamily: kGtSectraFine),
+                      style: Styles.textStyle20
+                          .copyWith(fontFamily: kGtSectraFine),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -76,4 +76,3 @@ class BestSellerListViewItem extends StatelessWidget {
     );
   }
 }
-

@@ -13,6 +13,7 @@ class SplashViewBody extends StatefulWidget {
 
 class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
+      
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
 
