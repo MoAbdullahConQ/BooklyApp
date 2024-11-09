@@ -34,6 +34,10 @@ class BookDetalisViewBody extends StatelessWidget {
                   fontWeight: FontWeight.w500, fontStyle: FontStyle.italic),
             ),
           ),
+          const SizedBox(height: 18),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
+          )
         ],
       ),
     );
