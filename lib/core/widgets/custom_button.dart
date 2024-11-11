@@ -7,13 +7,14 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.txtColor,
     this.bkColor,
-    this.borderRadius, this.fontSize,
+    this.borderRadius,
+    this.fontSize,
   });
 
   final String text;
   final Color? txtColor, bkColor;
   final BorderRadius? borderRadius;
- final double? fontSize;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
