@@ -22,7 +22,8 @@ class BookListViewItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomBookImage(imgUrl: bookModel.volumeInfo.imageLinks.thumbnail),
+            CustomBookImage(
+                imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
@@ -40,8 +41,9 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?[0] ?? 'Unknown',
                     style: Styles.textStyle14,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 3),
                   Row(
