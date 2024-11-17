@@ -1,10 +1,9 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({
-    super.key,
-  });
+  const CustomBookImage({super.key, required this.imgUrl});
+
+  final String imgUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +15,10 @@ class CustomBookImage extends StatelessWidget {
         // height: MediaQuery.of(context).size.height / 10,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: const Color(0xffFEBDA6),
-          image: const DecorationImage(
+          // color: const Color(0xffFEBDA6),
+          image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage(AssetsData.testImage),
+            image: NetworkImage(imgUrl),
           ),
         ),
       ),
