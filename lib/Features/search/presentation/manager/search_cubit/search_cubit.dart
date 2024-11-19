@@ -19,4 +19,14 @@ class SearchCubit extends Cubit<SearchState> {
       emit(SearchSuccess(books));
     });
   }
+
+  Future<void> fetchBooks() async {
+    emit(SearchLoading());
+    var result = await searchRepo.fetchBooks();
+    result.fold((failures) {
+      emit(SearchFailure(failures.errMessage));
+    }, (books) {
+      emit(SearchSuccess(books));
+    });
+  }
 }

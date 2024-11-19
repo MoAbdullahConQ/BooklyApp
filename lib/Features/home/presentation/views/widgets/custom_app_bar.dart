@@ -9,6 +9,8 @@ class CustomAppBar extends StatelessWidget {
     super.key,
   });
 
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +25,7 @@ class CustomAppBar extends StatelessWidget {
           const Spacer(),
           IconButton(
             onPressed: () {
-              GoRouter.of(context).push(AppRouter.kSearchView);
+              GoRouter.of(context).push(AppRouter.kSearchView );
             },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,

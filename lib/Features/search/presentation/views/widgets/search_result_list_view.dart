@@ -1,6 +1,6 @@
 import 'package:bookly_app/Features/home/presentation/views/widgets/books_list_view_item.dart';
 import 'package:bookly_app/Features/search/presentation/manager/search_cubit/search_cubit.dart';
-import 'package:bookly_app/core/errors/failures.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indecator.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +17,14 @@ class SearchResultListView extends StatelessWidget {
           return ListView.builder(
             // physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            itemCount: 10,
+            itemCount: state.books.length,
             itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                // child: BookListViewItem(bookModel: ,),
-                child: Text('data'),
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: BookListViewItem(
+                  bookModel: state.books[index],
+                ),
+                // child: Text('data'),
               );
             },
           );

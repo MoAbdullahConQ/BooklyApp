@@ -28,4 +28,23 @@ class SearchRepoImpl implements SearchRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failures, List<BookModel>>> fetchBooks() async {
+    try {
+      var data = await apiService.get(
+          endPoint:
+              'volumes?q=computer science&Filtering=free-ebooks&Sorting=newest');
+
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }
