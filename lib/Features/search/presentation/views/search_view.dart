@@ -11,17 +11,29 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
+  late TextEditingController _searchController;
+
   @override
   void initState() {
+    _searchController = TextEditingController();
+
     BlocProvider.of<SearchCubit>(context).fetchBooks();
     super.initState();
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: SearchViewBody(),
+        child: SearchViewBody(
+          searchController: _searchController,
+        ),
       ),
     );
   }

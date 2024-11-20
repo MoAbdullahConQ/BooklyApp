@@ -4,21 +4,23 @@ import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
+  const SearchViewBody({super.key, required this.searchController});
 
-  
+  final TextEditingController searchController;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomSearchTextField(),
-          SizedBox(height: 24),
-          Text('Search Result', style: Styles.textStyle18),
-          Expanded(child: SearchResultListView()),
+          CustomSearchTextField(
+            controller: searchController,
+          ),
+          const SizedBox(height: 24),
+          const Text('Search Result', style: Styles.textStyle18),
+          const Expanded(child: SearchResultListView()),
         ],
       ),
     );

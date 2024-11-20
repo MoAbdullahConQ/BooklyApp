@@ -15,7 +15,8 @@ class SearchRepoImpl implements SearchRepo {
       {required String bookName}) async {
     try {
       var data = await apiService.get(
-          endPoint: 'volumes?q=subject:programming&Filtering=free-ebooks');
+          endPoint:
+              'volumes?q=$bookName&Filtering=free-ebooks&Sorting=relevance&maxResults=10');
 
       List<BookModel> books = [];
       for (var item in data['items']) {

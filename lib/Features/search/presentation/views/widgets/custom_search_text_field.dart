@@ -3,28 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CustomSearchTextField extends StatefulWidget {
+class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({
     super.key,
+    required this.controller,
   });
 
-  @override
-  State<CustomSearchTextField> createState() => _CustomSearchTextFieldState();
-}
+  final TextEditingController controller;
 
-class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
-  String val = '';
-
+  // String val = '';
   @override
   Widget build(BuildContext context) {
     return Center(
       child: TextField(
-        onChanged: (value) {
-          // var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
-          // getWeatherCubit.getWeather(cityName: value);
-          // Navigator.pop(context);
-          val = value;
-        },
+        controller: controller,
+        // onChanged: (value) {
+        // //   // var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
+        // //   // getWeatherCubit.getWeather(cityName: value);
+        // //   // Navigator.pop(context);
+        //   val = value;
+        // },
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -33,9 +31,10 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
               opacity: .8,
               child: IconButton(
                 onPressed: () {
-                  BlocProvider.of<SearchCubit>(context)
-                      .searchRepo
-                      .feachResultSearch(bookName: val);
+                  if (controller.text.isNotEmpty) {
+                    BlocProvider.of<SearchCubit>(context)
+                        .feachResultSearch(bookName: controller.text);
+                  }
                 },
                 icon: const Icon(
                   FontAwesomeIcons.magnifyingGlass,
